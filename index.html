@@ -11,13 +11,11 @@
 <meta property="og:description" content="Computational designer and researcher at HKS LINE in Dallas, working across parametric design, robotic fabrication, and material research.">
 <meta property="og:url" content="https://burcugocen.com/">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#E2E3E4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#2B2C2E" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23E2E3E4'/><g stroke='%23000' stroke-linecap='round'><line x1='4.50' y1='6.19' x2='13.84' y2='25.81' stroke-width='1.6'/><line x1='4.50' y1='6.19' x2='18.16' y2='14.78' stroke-width='1.6'/><line x1='7.91' y1='8.34' x2='17.26' y2='21.42' stroke-width='1'/><line x1='6.84' y1='11.10' x2='20.49' y2='13.15' stroke-width='1'/><line x1='11.33' y1='10.49' x2='20.67' y2='17.03' stroke-width='1'/><line x1='9.17' y1='16.00' x2='22.83' y2='11.52' stroke-width='1'/><line x1='14.74' y1='12.63' x2='24.09' y2='12.65' stroke-width='1'/><line x1='11.51' y1='20.90' x2='25.16' y2='9.89' stroke-width='1'/><line x1='18.16' y1='14.78' x2='27.50' y2='8.26' stroke-width='1.6'/><line x1='13.84' y1='25.81' x2='27.50' y2='8.26' stroke-width='1.6'/></g></svg>">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23000'/><text x='16' y='23.5' text-anchor='middle' font-family='Georgia, Times New Roman, serif' font-size='22' fill='%23F2F2F0'>B</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
-<script>document.documentElement.className = 'js';</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300..600&family=Newsreader:opsz,wght@6..72,300..500&display=swap">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -36,237 +34,127 @@
 }
 </script>
 <style>
-  /* Palette: Rhino viewport grey, black linework, construction-plane axis colours (X red, Y green) */
+  /* Black page, monochrome. Serif carries the voice (name, intro, section titles); sans carries the record. */
   :root {
-    --canvas: #E2E3E4;
-    --panel: #EEEFF0;
-    --ink: #000;
-    --ink-2: #56595E;
-    --grid: #C3C5C8;
-    --x: #B3362C;
-    --y: #2E8545;
-    color-scheme: light;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --canvas: #2B2C2E;
-      --panel: #36373A;
-      --ink: #F2F2F3;
-      --ink-2: #A6A9AE;
-      --grid: #45474B;
-      --x: #EA7A6D;
-      --y: #62C281;
-      color-scheme: dark;
-    }
+    --bg: #000;
+    --ink: #F2F2F0;
+    --ink-soft: #D6D6D3;
+    --ink-2: #8F8F8B;
+    --rule: #5E5E5A;
+    --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+    color-scheme: dark;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: var(--canvas);
+    background: var(--bg);
     color: var(--ink);
-    font-family: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: var(--sans);
     font-size: 1.0625rem;
-    line-height: 1.55;
+    line-height: 1.6;
     font-kerning: normal;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   a {
     color: inherit;
     text-decoration-line: underline;
-    text-decoration-color: var(--x);
-    text-decoration-thickness: .09em;
-    text-underline-offset: .2em;
+    text-decoration-color: var(--rule);
+    text-decoration-thickness: 1px;
+    text-underline-offset: .22em;
   }
-  a:hover { color: var(--x); }
-  :focus-visible { outline: 2px solid var(--x); outline-offset: 3px; border-radius: 2px; }
+  a:hover { text-decoration-color: currentColor; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
   .wrap { max-width: 76rem; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 3rem); }
 
-  /* Hero */
-  .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    grid-template-areas: "name figure" "intro figure";
-    grid-template-rows: auto 1fr;
-    column-gap: clamp(2rem, 5vw, 5rem);
-    padding: clamp(2.75rem, 8vw, 6rem) 0 clamp(2.5rem, 6vw, 4.5rem);
-  }
-  .name {
-    grid-area: name;
-    margin: 0 0 clamp(1.25rem, 3vw, 2rem);
-    font-size: clamp(3.25rem, 9vw, 7rem);
-    font-weight: 750;
-    font-stretch: 125%;
-    line-height: .9;
-    letter-spacing: -.035em;
-  }
-  .name span { display: block; }
-  .intro { grid-area: intro; }
-  .lede { margin: 0 0 1.75rem; max-width: 31em; font-size: 1.25rem; line-height: 1.5; }
-  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; }
-  .btn {
-    display: inline-block;
-    padding: .7em 1.15em;
-    border: 1px solid var(--ink);
-    border-radius: 7px;
-    background: var(--ink);
-    color: var(--canvas);
-    font-weight: 600;
-    line-height: 1.2;
-    text-decoration: none;
-  }
-  .btn:hover { background: transparent; color: var(--ink); }
-
-  /* Live drawing: a hyperbolic paraboloid on the construction plane */
-  .viewport { grid-area: figure; align-self: center; margin: 0; display: none; }
-  .js .viewport { display: block; }
-  .viewport svg {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 43 / 37;
-    cursor: grab;
-    touch-action: pan-y;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-  .viewport svg.is-dragging { cursor: grabbing; }
-  .viewport line { vector-effect: non-scaling-stroke; stroke-linecap: round; }
-  #grid line { stroke: var(--grid); stroke-width: 1; }
-  .axis-x { stroke: var(--x); stroke-width: 1.25; }
-  .axis-y { stroke: var(--y); stroke-width: 1.25; }
-  .rule { stroke: var(--ink); stroke-width: .9; }
-  .edge { stroke: var(--ink); stroke-width: 1.6; }
-  .mid-x { stroke: var(--x); stroke-width: 2; }
-  .mid-y { stroke: var(--y); stroke-width: 2; }
-  .controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: .75rem 1.5rem;
-    margin-top: .5rem;
-  }
-  .hint { margin: 0; color: var(--ink-2); font-size: .875rem; }
-
-  /* Number slider, in the manner of a Grasshopper component */
-  .slider {
-    position: relative;
-    display: inline-grid;
-    grid-template-columns: auto minmax(7rem, 12rem) 2.6em;
-    align-items: center;
-    column-gap: .75rem;
-    padding: .3rem .75rem;
-    border: 1px solid var(--ink);
-    border-radius: 7px;
-    background: var(--panel);
-    font-size: .875rem;
-  }
-  .slider::after {
-    content: "";
-    position: absolute;
-    right: -5px;
-    top: 50%;
-    width: 9px;
-    height: 9px;
-    margin-top: -4.5px;
-    border: 1px solid var(--ink);
-    border-radius: 50%;
-    background: var(--canvas);
-  }
-  .slider label { font-weight: 600; }
-  .slider output { text-align: right; font-variant-numeric: tabular-nums; }
-  .slider input {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 24px;
-    margin: 0;
-    background: transparent;
-    cursor: pointer;
-  }
-  .slider input::-webkit-slider-runnable-track { height: 1px; background: var(--ink); }
-  .slider input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 11px;
-    height: 17px;
-    margin-top: -8px;
-    border: 1px solid var(--ink);
-    border-radius: 3px;
-    background: var(--canvas);
-  }
-  .slider input::-moz-range-track { height: 1px; background: var(--ink); }
-  .slider input::-moz-range-thumb {
-    width: 9px;
-    height: 15px;
-    border: 1px solid var(--ink);
-    border-radius: 3px;
-    background: var(--canvas);
-  }
-  .slider input:focus-visible { outline: 2px solid var(--x); outline-offset: 2px; }
-
-  /* CV sections */
-  .block {
+  /* One shared grid: section names on the left, content on the right */
+  .hero, .block, .foot {
     display: grid;
     grid-template-columns: minmax(0, 14rem) minmax(0, 46rem);
     column-gap: clamp(1.5rem, 5vw, 5rem);
-    padding: clamp(1.75rem, 4vw, 3rem) 0;
   }
+
+  /* Opening */
+  .hero { padding: clamp(3.5rem, 11vw, 9rem) 0 clamp(3rem, 8vw, 6rem); }
+  .name {
+    grid-column: 1 / -1;
+    margin: 0 0 clamp(1.5rem, 4vw, 2.75rem);
+    font-family: var(--serif);
+    font-size: clamp(3rem, 9vw, 7.5rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.025em;
+  }
+  .intro { grid-column: 2; }
+  .lede {
+    margin: 0 0 2rem;
+    font-family: var(--serif);
+    font-size: clamp(1.1875rem, 2vw, 1.375rem);
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+  .btn {
+    display: inline-block;
+    padding: .85em 1.6em;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-size: .8125rem;
+    font-weight: 500;
+    letter-spacing: .14em;
+    line-height: 1;
+    text-decoration: none;
+  }
+  .btn:hover { background: var(--ink); color: var(--bg); }
+
+  /* CV sections */
+  .block { padding: clamp(2rem, 4.5vw, 3.25rem) 0; }
   .block h2 {
     position: sticky;
     top: 1.5rem;
     align-self: start;
     margin: 0 0 1.25rem;
-    font-size: 1.5rem;
+    font-family: var(--serif);
+    font-size: 1.625rem;
+    font-weight: 400;
     line-height: 1.15;
-    font-weight: 650;
-    font-stretch: 115%;
-    letter-spacing: -.01em;
+    letter-spacing: -.005em;
   }
-  .entries { display: grid; gap: 1.75rem; }
+  .entries { display: grid; gap: 1.875rem; }
   .entry { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 1.5rem; }
   .when {
     margin: 0;
-    padding-top: .1em;
+    padding-top: .12em;
     color: var(--ink-2);
     font-size: .9375rem;
-    line-height: 1.45;
+    line-height: 1.5;
     font-variant-numeric: tabular-nums;
   }
   .when span { display: block; }
-  .what h3 { margin: 0; font-size: 1.0625rem; line-height: 1.35; font-weight: 650; }
+  .what h3 { margin: 0; font-size: 1.0625rem; font-weight: 500; line-height: 1.4; }
   .where { margin: .2rem 0 0; color: var(--ink-2); }
-  .what ul { margin: .65rem 0 0; padding-left: 1.15rem; }
-  .what li { margin-top: .35rem; }
+  .source { margin: .45rem 0 0; color: var(--ink-2); font-size: .9375rem; line-height: 1.55; }
+  .nowrap { white-space: nowrap; }
+  .what ul { margin: .7rem 0 0; padding-left: 1.1rem; }
+  .what li { margin-top: .4rem; color: var(--ink-soft); }
   .what li::marker { color: var(--ink-2); }
-  .doi { margin: .2rem 0 0; overflow-wrap: anywhere; }
+  .doi { margin: .4rem 0 0; font-size: .9375rem; overflow-wrap: anywhere; }
   .skills { margin: 0; display: grid; gap: 1.25rem; }
   .skills div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); column-gap: 1.5rem; }
-  .skills dt { color: var(--ink-2); font-size: .9375rem; line-height: 1.45; padding-top: .1em; }
-  .skills dd { margin: 0; }
+  .skills dt { color: var(--ink-2); font-size: .9375rem; line-height: 1.5; padding-top: .12em; }
+  .skills dd { margin: 0; color: var(--ink-soft); }
 
-  .foot {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: .5rem 2rem;
-    padding: 2.5rem 0 3rem;
-    color: var(--ink-2);
-    font-size: .9375rem;
-  }
-  .foot p { margin: 0; }
+  .foot { padding: 2rem 0 3.5rem; color: var(--ink-2); font-size: .875rem; }
+  .foot p { grid-column: 2; margin: 0; }
 
   @media (max-width: 880px) {
-    .hero {
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-areas: "name" "intro" "figure";
-      grid-template-rows: auto;
-    }
-    .viewport { margin-top: 2.5rem; max-width: 34rem; }
-    .block { grid-template-columns: minmax(0, 1fr); }
+    .hero, .block, .foot { grid-template-columns: minmax(0, 1fr); }
+    .intro, .foot p { grid-column: 1; }
     .block h2 { position: static; }
   }
   @media (max-width: 560px) {
@@ -274,14 +162,12 @@
     .when { margin-bottom: .15rem; }
     .when span { display: inline; }
     .skills dt { margin-bottom: .15rem; }
-    .lede { font-size: 1.125rem; }
-    .slider { grid-template-columns: auto minmax(0, 1fr) 2.6em; width: calc(100% - 6px); }
   }
   @media print {
-    :root { --canvas: #fff; --ink: #000; --ink-2: #444; --x: #000; }
+    :root { --bg: #fff; --ink: #000; --ink-soft: #111; --ink-2: #444; --rule: #999; }
     body { font-size: 10.5pt; }
-    .viewport, .btn { display: none !important; }
-    .hero { grid-template-columns: 1fr; grid-template-areas: "name" "intro"; padding: 0 0 1.5rem; }
+    .btn { display: none; }
+    .hero { padding: 0 0 1.5rem; }
     .name { font-size: 32pt; }
     .block { padding: .75rem 0; break-inside: avoid; }
     .block h2 { position: static; }
@@ -293,41 +179,14 @@
 <div class="wrap">
 
   <header class="hero">
-    <h1 class="name"><span>Burcu</span> <span>Gocen</span></h1>
-
+    <h1 class="name">Burcu Gocen</h1>
     <div class="intro">
       <p class="lede">Computational designer and researcher with academic and professional experience spanning Turkey, Germany, and the United States. Background in interior architecture, computational design, robotics, and material research, with work ranging from adaptive reuse to emerging architectural technologies. Focused on connecting experimental research and architectural practice through interdisciplinary collaboration.</p>
       <div class="actions">
-        <a class="btn" href="Burcu-Gocen-CV.pdf">Download CV (PDF)</a>
+        <a class="btn" href="Burcu-Gocen-CV.pdf" aria-label="Resume (PDF)">RESUME</a>
         <a href="mailto:burcugoecen@gmail.com">burcugoecen@gmail.com</a>
       </div>
     </div>
-
-    <figure class="viewport">
-      <svg id="hypar" viewBox="-2.15 -1.85 4.3 3.7" role="img" aria-labelledby="hypar-title">
-        <title id="hypar-title">Line drawing of a hyperbolic paraboloid, a curved surface made entirely of straight lines, resting on a construction grid</title>
-        <defs>
-          <radialGradient id="fade" cx="0" cy="0" r="2.05" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-            <stop offset=".6" stop-color="#fff" stop-opacity=".85"/>
-            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-          </radialGradient>
-          <mask id="grid-mask" maskUnits="userSpaceOnUse" x="-2.15" y="-1.85" width="4.3" height="3.7">
-            <rect x="-2.15" y="-1.85" width="4.3" height="3.7" fill="url(#fade)"/>
-          </mask>
-        </defs>
-        <g mask="url(#grid-mask)"><g id="grid"></g><g id="axes"></g></g>
-        <g id="surface"></g>
-      </svg>
-      <div class="controls">
-        <div class="slider">
-          <label for="twist">Twist</label>
-          <input id="twist" type="range" min="0" max="1.2" step="0.01" value="0.75">
-          <output id="twist-value" for="twist">0.75</output>
-        </div>
-        <p class="hint">Drag the drawing to rotate it</p>
-      </div>
-    </figure>
   </header>
 
   <main>
@@ -438,7 +297,7 @@
           <p class="when">2025</p>
           <div class="what">
             <h3>SALPIDA: Locally-Adaptive Robotic Heating, Inflation and Assembly of Additively Manufactured Thermoplastic Blowforms</h3>
-            <p class="where">ACADIA</p>
+            <p class="source">ACADIA 2025: Computing for Resilience, Volume 2 [Proceedings of the 45th Annual Conference for the Association for Computer Aided Design in Architecture (ACADIA) <span class="nowrap">ISBN 979-8-9891764-3-4</span>]. Miami. 3–8 November, 2025. Edited by Bhavleen Kaur, Katarzyna Balug, Joel Lamere, and Vyta Pivo. 102–114.</p>
             <p class="doi"><a href="https://doi.org/10.52842/conf.acadia.2025.2.102">doi.org/10.52842/conf.acadia.2025.2.102</a></p>
           </div>
         </article>
@@ -446,7 +305,7 @@
           <p class="when">2025</p>
           <div class="what">
             <h3>Tegula Series: Chemically Interactive &amp; Ecologically Benign Bio-Composites</h3>
-            <p class="where">ACADIA</p>
+            <p class="source">ACADIA 2025: Computing for Resilience, Volume 1 [Project Catalog of the 45th Annual Conference for the Association for Computer Aided Design in Architecture (ACADIA) <span class="nowrap">ISBN 979-8-9891764-2-7</span>]. Miami. 3–8 November, 2025. Edited by Christopher Meyer, Shawna Meyer, and Sara Pezeshk. 86–93.</p>
             <p class="doi"><a href="https://doi.org/10.52842/conf.acadia.2025.1.086">doi.org/10.52842/conf.acadia.2025.1.086</a></p>
           </div>
         </article>
@@ -569,149 +428,9 @@
   </main>
 
   <footer class="foot">
-    <p>Portfolio in progress. For now, this page is the CV.</p>
     <p>Updated October 2026</p>
   </footer>
 
 </div>
-
-<script>
-(() => {
-  const svg = document.getElementById('hypar');
-  const slider = document.getElementById('twist');
-  const out = document.getElementById('twist-value');
-  const fade = document.getElementById('fade');
-  if (!svg || !slider || !out || !fade) return;
-
-  const NS = 'http://www.w3.org/2000/svg';
-  const RULINGS = 15;   // odd, so the middle rulings land on the X and Y axes
-  const EXTENT = 2;     // half-size of the construction grid
-  const SPACING = 0.25;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  let twist = parseFloat(slider.value);
-  let azimuth = -0.2;
-  let elevation = 0.45;
-
-  const groups = {
-    grid: svg.querySelector('#grid'),
-    axes: svg.querySelector('#axes'),
-    surface: svg.querySelector('#surface')
-  };
-  const makeLine = (group, cls) => {
-    const el = document.createElementNS(NS, 'line');
-    if (cls) el.setAttribute('class', cls);
-    group.appendChild(el);
-    return el;
-  };
-
-  const gridLines = [];
-  const steps = Math.round(EXTENT / SPACING);
-  for (let i = -steps; i <= steps; i++) {
-    if (i === 0) continue;
-    const v = i * SPACING;
-    gridLines.push({ a: [v, -EXTENT, 0], b: [v, EXTENT, 0], el: makeLine(groups.grid) });
-    gridLines.push({ a: [-EXTENT, v, 0], b: [EXTENT, v, 0], el: makeLine(groups.grid) });
-  }
-  const axes = [
-    { a: [-EXTENT, 0, 0], b: [EXTENT, 0, 0], el: makeLine(groups.axes, 'axis-x') },
-    { a: [0, -EXTENT, 0], b: [0, EXTENT, 0], el: makeLine(groups.axes, 'axis-y') }
-  ];
-
-  // z = twist * x * y is doubly ruled: every line x = t and y = t lies on it.
-  const rulings = [];
-  const middle = (RULINGS - 1) / 2;
-  for (let i = 0; i < RULINGS; i++) {
-    const t = -1 + (2 * i) / (RULINGS - 1);
-    const edge = i === 0 || i === RULINGS - 1;
-    rulings.push({ alongY: true, t, cue: i !== middle, el: makeLine(groups.surface, i === middle ? 'mid-y' : edge ? 'edge' : 'rule') });
-    rulings.push({ alongY: false, t, cue: i !== middle, el: makeLine(groups.surface, i === middle ? 'mid-x' : edge ? 'edge' : 'rule') });
-  }
-
-  const project = ([x, y, z]) => {
-    const ca = Math.cos(azimuth), sa = Math.sin(azimuth);
-    const se = Math.sin(elevation), ce = Math.cos(elevation);
-    const xr = x * ca - y * sa;
-    const yr = x * sa + y * ca;
-    return [xr, yr * se - z * ce, yr * ce + z * se]; // screen x, screen y, depth toward viewer
-  };
-  const place = (line, a, b, cue) => {
-    const p = project(a), q = project(b);
-    line.el.setAttribute('x1', p[0].toFixed(4));
-    line.el.setAttribute('y1', p[1].toFixed(4));
-    line.el.setAttribute('x2', q[0].toFixed(4));
-    line.el.setAttribute('y2', q[1].toFixed(4));
-    if (cue) {
-      const depth = (p[2] + q[2]) / 2;
-      line.el.style.opacity = (0.4 + 0.6 * Math.min(1, Math.max(0, (depth + 1.4) / 2.8))).toFixed(3);
-    }
-  };
-  const draw = () => {
-    fade.setAttribute('gradientTransform', 'scale(1 ' + Math.max(0.2, Math.sin(elevation)).toFixed(4) + ')');
-    gridLines.forEach(l => place(l, l.a, l.b, false));
-    axes.forEach(l => place(l, l.a, l.b, false));
-    rulings.forEach(r => {
-      const z0 = -twist * r.t, z1 = twist * r.t;
-      const a = r.alongY ? [r.t, -1, z0] : [-1, r.t, z0];
-      const b = r.alongY ? [r.t, 1, z1] : [1, r.t, z1];
-      place(r, a, b, r.cue);
-    });
-  };
-
-  let frame = 0;
-  const redraw = () => {
-    if (!frame) frame = requestAnimationFrame(() => { frame = 0; draw(); });
-  };
-  const showTwist = () => { out.value = twist.toFixed(2); };
-
-  let intro = 0;
-  const stopIntro = () => { if (intro) { cancelAnimationFrame(intro); intro = 0; } };
-
-  slider.addEventListener('input', () => {
-    stopIntro();
-    twist = parseFloat(slider.value);
-    showTwist();
-    redraw();
-  });
-
-  let drag = null;
-  svg.addEventListener('pointerdown', e => {
-    drag = { x: e.clientX, y: e.clientY, azimuth, elevation };
-    svg.setPointerCapture(e.pointerId);
-    svg.classList.add('is-dragging');
-  });
-  svg.addEventListener('pointermove', e => {
-    if (!drag) return;
-    azimuth = drag.azimuth + (e.clientX - drag.x) * 0.008;
-    elevation = Math.min(1.45, Math.max(0.1, drag.elevation + (e.clientY - drag.y) * 0.006));
-    redraw();
-  });
-  const release = () => { drag = null; svg.classList.remove('is-dragging'); };
-  svg.addEventListener('pointerup', release);
-  svg.addEventListener('pointercancel', release);
-
-  if (reduceMotion) {
-    showTwist();
-    draw();
-  } else {
-    // One opening move: the flat grid patch twists into the surface while the slider travels.
-    const target = twist, start = performance.now() + 250, duration = 1600;
-    const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-    const step = now => {
-      const t = Math.min(1, Math.max(0, (now - start) / duration));
-      twist = target * ease(t);
-      slider.value = twist.toFixed(2);
-      showTwist();
-      draw();
-      intro = t < 1 ? requestAnimationFrame(step) : 0;
-    };
-    twist = 0;
-    slider.value = '0';
-    showTwist();
-    draw();
-    intro = requestAnimationFrame(step);
-  }
-})();
-</script>
 </body>
 </html>
